@@ -15,16 +15,20 @@
         <my-navbar :navbars="navbarValue"></my-navbar>
     </div>
     <div class="border"></div>
-    <!-- Banner-->
-    <div class="swiper-container">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide banner_1"></div>
-            <div class="swiper-slide banner_2"></div>
-            <div class="swiper-slide banner_3"></div>
-            <div class="swiper-slide banner_4"></div>
-            <div class="swiper-slide banner_5"></div>
+    <!-- Service -->
+    <div class="service">
+        <div class="formContainer">
+            <h2>{{serviceTitle}}</h2>
+            <form action="" class="form" id="contactForm">
+                <p>{{name}}*：</p><input type="text" :placeholder="name" name="name" class="formInput formName" required></br>
+                <p>{{phone}}*：</p><input type="text" :placeholder="phone" name="phone" class="formInput formPhone" required></br>
+                <p>{{email}}*：</p><input type="email" :placeholder="email" name="email" class="formInput formEmail" required></br>
+                <p>{{message}}*：</p><textarea name="message" form="contactForm" class="formInput formMsg" id="msgArea"></textarea></br>
+                <input type="button" :value="commit" @click="commitMsg" class="formBtn">
+                <input type="button" :value="clean" @click="cleanMsg" class="formBtn">
+                <a class="postForm"></a>
+            </form>
         </div>
-        <div class="swiper-pagination"></div>
     </div>
     <!-- Footer -->
     <div id="footerContainer">
@@ -32,7 +36,6 @@
     </div>
     <!-- Import JS -->
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
     <script>
         window.lang="en";
         
@@ -47,17 +50,6 @@
             script.setAttribute('src', jsArr[i]);
             document.body.appendChild(script);
         }
-        
-        var swiper = new Swiper('.swiper-container', {
-            pagination: {
-            el: '.swiper-pagination',
-            dynamicBullets: true,
-            },
-            autoplay:{
-                delay: 5000,
-                disableOnInteraction: false
-            }
-        });
     </script>
 </body>
 </html>
